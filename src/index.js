@@ -28,7 +28,6 @@ const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
     name: 'vite-plugin-favicon-inject',
     configResolved(resolvedConfig) {
       viteConfig = resolvedConfig;
-      console.log(viteConfig);
       // override default source if none set
       if (!source || source === '') {
         source = path.join(viteConfig.root, 'src', 'logo.png');
