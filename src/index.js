@@ -18,7 +18,7 @@ const writeFile = (filePath, fileContent) => new Promise((resolve, reject) => {
   });
 });
 
-const viteFaviconsPlugin = (inputSource, inputConfig = {}) => {
+const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
   let response = false;
   let isProcessed = false;
   let viteConfig = false;
@@ -74,4 +74,4 @@ const viteFaviconsPlugin = (inputSource, inputConfig = {}) => {
   };
 };
 
-export default viteFaviconsPlugin;
+export default vitePluginFaviconsInject;
