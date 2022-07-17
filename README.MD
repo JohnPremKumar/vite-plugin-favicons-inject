@@ -58,7 +58,7 @@ Parameter
  - `config` (optional) - favions config object. (refer [favicons](https://github.com/itgalaxy/favicons#nodejs) for all available options).
 
   config - defaults:
-  ```json
+  ```javascript
   {
     path: "<vite assets dir>" // destination path of generated favicons
   }
