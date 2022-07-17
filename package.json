@@ -9,6 +9,14 @@
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
+  "files": [
+    "dist",
+    "LICENCE",
+    "package.json",
+    "package-lock.json",
+    "README.MD",
+    "rollup.config.js"
+  ],
   "keywords": [
     "vite",
     "favicons",
