@@ -60,7 +60,7 @@ Parameter
   config - defaults:
   ```json
   {
-    path: <vite assets dir> // destination path of generated favicons
+    path: "<vite assets dir>" // destination path of generated favicons
   }
   ```
   More information about vite assets directory can be found [here](https://vitejs.dev/config/build-options.html#build-assetsdir)
