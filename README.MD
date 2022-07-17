@@ -25,6 +25,8 @@ Usage
 ### As ES6 Module ###
 
 ```javascript
+// In vite.config.js file
+
 import vitePluginFaviconsInject from 'vite-plugin-favicons-inject/esm';
 
 export default defineConfig({
@@ -39,6 +41,8 @@ export default defineConfig({
 ### As CommonJs ###
 
 ```javascript
+// In vite.config.js file
+
 const vitePluginFaviconsInject = require('vite-plugin-favicons-inject/cjs');
 
 export default defineConfig({
@@ -71,7 +75,7 @@ Compatibility
 
 This plugin was created to easily migrate from [vite-plugin-favicon](https://github.com/josh-hemphill/vite-plugin-favicon) which no longer seems to be working.
 
-Just install, change the import and vite and config. You are good to go!
+Just install, change the import and plugin config in vite config file. You are good to go!
 
 License
 -------
