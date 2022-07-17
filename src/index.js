@@ -28,6 +28,7 @@ const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
     name: 'vite-plugin-favicon-inject',
     configResolved(resolvedConfig) {
       viteConfig = resolvedConfig;
+      console.log(viteConfig);
       // override default source if none set
       if (!source || source === '') {
         source = path.join(viteConfig.root, 'src', 'logo.png');
@@ -40,8 +41,7 @@ const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
       // override default path is none set
       if (!config.path) {
         const opPath = path.join(
-          viteConfig.root,
-          viteConfig.build.outDir,
+          viteConfig.base,
           viteConfig.build.assetsDir,
         );
         config.path = opPath;
