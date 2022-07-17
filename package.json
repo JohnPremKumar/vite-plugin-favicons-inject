@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-favicons-inject",
-  "version": "1.2.1-0",
+  "version": "2.0.0",
   "description": "A Vite plugin for creating and injecting favicons during the application build!",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
