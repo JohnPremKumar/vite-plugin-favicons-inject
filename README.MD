@@ -61,13 +61,13 @@ Parameter
  - `source` - path of the logo file. Default: ./src/logo.png
  - `config` (optional) - favions config object. (refer [favicons](https://github.com/itgalaxy/favicons#nodejs) for all available options).
 
-  config - defaults:
+  Note 'path' option in the config cannot be overriden as it is assigned to vite assetsDir:
   ```javascript
   {
-    path: "<vite assets dir>" // destination path of generated favicons
+    path: "<vite assets dir>" // destination path of generated favicons based on vite asset dir
   }
   ```
-  More information about vite assets directory can be found [here](https://vitejs.dev/config/build-options.html#build-assetsdir)
+  More information about vite assets directory and how to change it can be found [here](https://vitejs.dev/config/build-options.html#build-assetsdir)
 
 
 Compatibility

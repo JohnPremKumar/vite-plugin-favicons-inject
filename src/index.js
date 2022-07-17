@@ -38,13 +38,11 @@ const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
       }
 
       // override default path is none set
-      if (!config.path) {
-        const opPath = path.join(
-          viteConfig.base,
-          viteConfig.build.assetsDir,
-        );
-        config.path = opPath;
-      }
+      const opPath = path.join(
+        viteConfig.base,
+        viteConfig.build.assetsDir,
+      );
+      config.path = opPath;
     },
     transformIndexHtml(html) {
       const flowPromise = !isProcessed
@@ -62,11 +60,16 @@ const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
       const fileCreationPromise = [];
       const { files } = response;
       const { images } = response;
+      const originalPath = path.join(
+        viteConfig.root,
+        viteConfig.build.outDir,
+        viteConfig.build.assetsDir,
+      );
       files.forEach((eachFile) => {
-        fileCreationPromise.push(writeFile(`${config.path}/${eachFile.name}`, eachFile.contents));
+        fileCreationPromise.push(writeFile(`${originalPath}/${eachFile.name}`, eachFile.contents));
       });
       images.forEach((eachImage) => {
-        fileCreationPromise.push(writeFile(`${config.path}/${eachImage.name}`, eachImage.contents));
+        fileCreationPromise.push(writeFile(`${originalPath}/${eachImage.name}`, eachImage.contents));
       });
       return Promise.all(fileCreationPromise);
     },
