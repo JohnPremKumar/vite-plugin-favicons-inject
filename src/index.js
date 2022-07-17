@@ -1,6 +1,6 @@
-import favicons from 'favicons';
-import fs from 'fs';
-import path from 'path';
+const favicons = require('favicons');
+const fs = require('fs');
+const path = require('path');
 
 const callback = (error, response) => new Promise((resolve, reject) => {
   if (error) {

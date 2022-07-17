@@ -27,7 +27,7 @@ Usage
 ```javascript
 // In vite.config.js file
 
-import vitePluginFaviconsInject from 'vite-plugin-favicons-inject/esm';
+import vitePluginFaviconsInject from 'vite-plugin-favicons-inject';
 
 export default defineConfig({
   plugins: [
@@ -43,7 +43,7 @@ export default defineConfig({
 ```javascript
 // In vite.config.js file
 
-const vitePluginFaviconsInject = require('vite-plugin-favicons-inject/cjs');
+const vitePluginFaviconsInject = require('vite-plugin-favicons-inject');
 
 export default defineConfig({
   plugins: [
