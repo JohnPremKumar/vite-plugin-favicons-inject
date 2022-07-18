@@ -32,7 +32,7 @@ import vitePluginFaviconsInject from 'vite-plugin-favicons-inject';
 export default defineConfig({
   plugins: [
     ...
-    viteFaviconsPlugin('./src/assets/logo.svg'),
+    vitePluginFaviconsInject('./src/assets/logo.svg'),
     ...
   ]
 });
@@ -48,7 +48,7 @@ const vitePluginFaviconsInject = require('vite-plugin-favicons-inject');
 export default defineConfig({
   plugins: [
     ...
-    viteFaviconsPlugin('./src/assets/logo.svg'),
+    vitePluginFaviconsInject('./src/assets/logo.svg'),
     ...
   ]
 });
