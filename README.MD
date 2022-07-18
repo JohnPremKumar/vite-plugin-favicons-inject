@@ -5,9 +5,6 @@ vite-plugin-favicons-inject
 <a href="https://npmcharts.com/compare/vite-plugin-favicons-inject?minimal=true">
   <img src="https://img.shields.io/npm/dm/vite-plugin-favicons-inject.svg">
 </a>
-<a href="https://img.shields.io/bundlephobia/minzip/vite-plugin-favicons-inject">
-  <img src="https://img.shields.io/bundlephobia/minzip/vite-plugin-favicons-inject">
-</a>
 <br>
 
 A Vite plugin for creating and injecting favicons during the application build!
