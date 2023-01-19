@@ -43,12 +43,12 @@
     "rollup-plugin-external-globals": "^0.6.1",
     "rollup-plugin-terser": "^7.0.2",
     "vite": "^3.0.0",
-    "vite-plugin-static-copy": "^0.7.0"
+    "vite-plugin-static-copy": "^0.7.0",
+    "vue": "^3.2.37"
   },
   "author": "John Prem Kumar S",
   "license": "MIT",
   "dependencies": {
-    "favicons": "^7.0.0-beta.4",
-    "vue": "^3.2.37"
+    "favicons": "^7.0.0-beta.4"
   }
 }
