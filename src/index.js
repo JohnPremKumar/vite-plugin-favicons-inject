@@ -18,12 +18,25 @@ const writeFile = (filePath, fileContent) => new Promise((resolve, reject) => {
   });
 });
 
-const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
+const getURLPath = (base, assetDir) => {
+  let publicUrl = path.join(base, assetDir);
+  try {
+    const parsedPublicUrl = new URL(publicUrl);
+    publicUrl = parsedPublicUrl.toString();
+  } catch (error) {
+    // assuming error means relative url under the package scope
+    publicUrl = publicUrl.replaceAll('\\', '/');
+  }
+  return publicUrl;
+};
+
+const vitePluginFaviconsInject = (inputSource, inputConfig = {}, pluginInputConfig = {}) => {
   let response = false;
   let isProcessed = false;
   let viteConfig = false;
   let source = inputSource;
   let config = inputConfig;
+  let pluginConfig = pluginInputConfig;
   return {
     name: 'vite-plugin-favicon-inject',
     configResolved(resolvedConfig) {
@@ -36,9 +49,14 @@ const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
       if (!config || (config && config.constructor.name !== 'Object')) {
         config = {};
       }
+      if (!pluginConfig || (pluginConfig && pluginConfig.constructor.name !== 'Object')) {
+        pluginConfig = {
+          failGraciously: false,
+        };
+      }
 
       // override default path is none set
-      const opPath = path.join(
+      const opPath = getURLPath(
         viteConfig.base,
         viteConfig.build.assetsDir,
       );
@@ -65,12 +83,22 @@ const vitePluginFaviconsInject = (inputSource, inputConfig = {}) => {
         viteConfig.build.outDir,
         viteConfig.build.assetsDir,
       );
-      files.forEach((eachFile) => {
-        fileCreationPromise.push(writeFile(`${originalPath}/${eachFile.name}`, eachFile.contents));
-      });
-      images.forEach((eachImage) => {
-        fileCreationPromise.push(writeFile(`${originalPath}/${eachImage.name}`, eachImage.contents));
-      });
+
+      if (files) {
+        files.forEach((eachFile) => {
+          fileCreationPromise.push(writeFile(`${originalPath}/${eachFile.name}`, eachFile.contents));
+        });
+      } else if (!pluginConfig.failGraciously) {
+        throw new Error('NO_FILES_FOUND');
+      }
+
+      if (images) {
+        images.forEach((eachImage) => {
+          fileCreationPromise.push(writeFile(`${originalPath}/${eachImage.name}`, eachImage.contents));
+        });
+      } else if (!pluginConfig.failGraciously) {
+        throw new Error('NO_IMAGES_FOUND');
+      }
       return Promise.all(fileCreationPromise);
     },
   };
