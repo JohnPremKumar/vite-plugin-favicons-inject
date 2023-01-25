@@ -57,7 +57,12 @@ Parameter
 
  - `source` - path of the logo file. Default: ./src/logo.png
  - `config` (optional) - favions config object. (refer [favicons](https://github.com/itgalaxy/favicons#nodejs) for all available options).
-
+ - `pluginConfig` (optional) - Some internal plugin configurations - Default:
+    ```javascript
+    {
+      failGraciously: false, // set it to `true`for failing without errors(only applicable on exceptional cases)
+    }
+    ```
   Note 'path' option in the config cannot be overriden as it is assigned to vite assetsDir:
   ```javascript
   {
@@ -66,6 +71,17 @@ Parameter
   ```
   More information about vite assets directory and how to change it can be found [here](https://vitejs.dev/config/build-options.html#build-assetsdir)
 
+Development Mode
+---------
+By default this plugin will not generate any files in the development mode since it will affect the HMR performance and overall development experience.
+
+But, the markup will be injected into the HTML files. If you would like to avoid it you can optionally enable this plugin only on production mode like below:
+
+```javascript
+process.env.NODE_ENV == "production" ? vitePluginFaviconsInject() : false
+```
+
+Note: the above suggestion assume you have a envionment variable called `NODE_ENV` properly configured in your application on the both production and development environments accordingly.
 
 Compatibility
 ---------
